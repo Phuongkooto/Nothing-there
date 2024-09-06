@@ -1,0 +1,10 @@
+public class nothingg {
+    void m() {System.out.println("method is invoked");}
+    void n() {this.m();}
+    void p() {n();}
+
+    public static void main(String args[]) {
+        nothingg s1 = new nothingg();
+        s1.p();
+    }
+}
