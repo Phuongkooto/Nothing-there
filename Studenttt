@@ -1,0 +1,67 @@
+package THIS;
+import java.util.Date;
+import java.util.Scanner;
+
+public class Studenttt {
+
+    String id;
+    String fullName;
+    float GPA;
+    Date dateOfBirth;
+    String major;
+
+   
+    Studenttt() {
+    }
+
+   
+    Studenttt(String id, String fullName, float GPA, Date dateOfBirth, String major) {
+        this.id = id;
+        this.fullName = fullName;
+        this.GPA = GPA;
+        this.dateOfBirth = dateOfBirth;
+        this.major = major;
+    }
+
+    
+    void enterStudentInfo() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Enter the id: ");
+        this.id = scanner.nextLine(); 
+
+        System.out.println("Enter the full Name: ");
+        this.fullName = scanner.nextLine(); 
+
+        System.out.println("Enter the GPA: ");
+        this.GPA = scanner.nextFloat(); 
+        scanner.nextLine(); 
+
+        System.out.println("Enter the DATE OF BIRTH (dd-MM-yyyy): ");
+        String dateOfBirthStr = scanner.nextLine();
+        try {
+            this.dateOfBirth = new java.text.SimpleDateFormat("dd-MM-yyyy").parse(dateOfBirthStr);
+        } catch (Exception e) {
+            System.out.println("Invalid date format!");
+        }
+
+        System.out.println("Enter the MAJOR: ");
+        this.major = scanner.nextLine(); 
+    }
+
+    
+    @Override
+    public String toString() {
+        return "ID: " + id + ", Full Name: " + fullName + ", GPA: " + GPA + ", Date of Birth: " + dateOfBirth + ", Major: " + major;
+    }
+
+    
+    public static void main(String[] args) {
+       
+        Studenttt student1 = new Studenttt();
+        student1.enterStudentInfo(); 
+
+        
+        System.out.println(student1.toString());
+    }
+}
